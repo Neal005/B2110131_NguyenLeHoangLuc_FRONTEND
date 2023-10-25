@@ -36,6 +36,16 @@
                 <i class="fas fa-address-card"></i>
             </h4>
             <ContactCard :contact="activeContact" />
+            <router-link
+                :to="{
+                    name: 'contact.edit',
+                    params: { id: activeContact._id },
+                }"
+            >
+                <span class="mt-2 badge badge-warning">
+                    <i class="fas fa-edit"></i> Hiệu chỉnh
+                </span>
+            </router-link>
         </div>
     </div>
 </div>
@@ -83,10 +93,12 @@
                     this.contactStrings[index].includes(this.searchText)
                 );
             },
+            
             activeContact() {
                 if (this.activeIndex < 0) return null;
                 return this.filteredContacts[this.activeIndex];
             },
+
             filteredContactsCount() {
                 return this.filteredContacts.length;
             },
@@ -100,10 +112,12 @@
                     console.log(error);
                 }
             },
+
             refreshList() {
                 this.retrieveContacts();
                 this.activeIndex = -1;
             },
+
             async removeAllContacts() {
                 if (confirm("Bạn muốn xóa tất cả Liên hệ?")) {
                     try {
@@ -114,6 +128,7 @@
                     }
                 }
             },
+
             goToAddContact() {
                 this.$router.push({ name: "contact.add" });
             },
