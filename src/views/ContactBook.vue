@@ -1,7 +1,7 @@
 <template>
 <div class="page row">
     <div class="col-md-10">
-        InputSearch v-model="searchText" />
+        <InputSearch v-model="searchText" />
     </div>
     <div class="mt-3 col-md-6">
         <h4>
@@ -15,7 +15,7 @@
         />
         <p v-else>Không có liên hệ nào.</p>
         <div class="mt-3 row justify-content-around align-items-center">
-            <button class="btn btn-sm btn-primary" @click="refreshList()">
+            <button class="btn btn-sm btn-primary" @click="refreshList">
             <i class="fas fa-redo"></i> Làm mới
             </button>
             <button class="btn btn-sm btn-success" @click="goToAddContact">
